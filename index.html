@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- font awesome CDN -->
+    <script
+        src="https://kit.fontawesome.com/d35df90ac6.js"
+        crossorigin="anonymous"
+    ></script>
+    <!-- fabric.js CND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    
+    <script src="./canvas.js" defer></script>
+</head>
+<body>
+    <canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
+    <div class="toolbar">
+        <div class="shape">
+            모양 선택
+            <div class="shape_box shape_box_active" data-shape="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="shape_box" data-shape="rectangle"><i class="fa-solid fa-square"></i></div>
+            <div class="shape_box" data-shape="triangle"><i class="fa-solid fa-triangle"></i></div>
+            <div class="shape_box" data-shape="heart"><i class="fa-solid fa-heart"></i></div>
+            <div class="shape_box" data-shape="star"><i class="fa-solid fa-star"></i></div>
+        </div>
+        <div class="color">
+            색깔 선택
+            <div class="color_box color_box_active" data-color="red"></div>
+            <div class="color_box" data-color="green"></div>
+            <div class="color_box" data-color="blue"></div>            
+            <div class="color_box" data-color="pink"></div>
+        </div>
+        <div class="size">
+            사이즈 선택
+            <input class="size_box" type="radio" name=size_radio data-size=1 checked>1호
+            <input class="size_box" type="radio" name=size_radio data-size=2>2호
+            <input class="size_box" type="radio" name=size_radio data-size=3>3호
+        </div>
+    </div>
+</body>
+</html>

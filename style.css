@@ -1,0 +1,48 @@
+.toolbar{
+    width: 500px;
+    
+    margin-top: 1rem;
+    padding: 10px;
+    box-sizing: border-box;
+
+    border: 1px solid red;
+}
+.shape, .color, .size{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.shape_box, .color_box{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 10px;
+    
+    border: 1px solid black;
+    border-radius: 0.3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 50%;
+}
+.color_box[data-color = 'red']{
+    background-color: red;
+}
+.color_box[data-color = 'green']{
+    background-color: green;
+}
+.color_box[data-color = 'blue']{
+    background-color: blue;
+}
+.color_box[data-color = 'pink']{
+    background-color: pink;
+}
+.size_box{
+    margin: 0 5px;
+    margin-left: 10px;
+}
+
+.shape_box_active, .color_box_active{
+    opacity: 100%;
+}
