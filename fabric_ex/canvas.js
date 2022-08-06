@@ -9,6 +9,11 @@ class draw{
         this.selectSize();
         this.draw();
 
+        this.img_file = document.querySelector('#image_file');
+        this.img_file.addEventListener('change',()=>{
+            this.fileImage.bind(this);
+        });
+
     }
     draw(){
         this.canvas.clear();
@@ -124,8 +129,9 @@ class draw{
         this.canvas.add(Rectangle);
     }
 
-    drawImage(url, width, height){
-        const img = new fabric.Image.fromURL(`{$url}`, function(oImg){
+    drawImage(url){
+        console.log(url);
+        new fabric.Image.fromURL(`${url}`, function(oImg){
             this.canvas.add(oImg);
         });
     }
@@ -165,6 +171,14 @@ class draw{
                 }
                 this.draw();
             });
+        });
+    }
+
+    fileImage(){
+        let file_url = this.img_file.files[0];
+        let pic_url = URL.createObjectURL(file_url);
+        new fabric.Image.fromURL(`${pic_url}`, function(oImg){
+            this.canvas.add(oImg);
         });
     }
 }
