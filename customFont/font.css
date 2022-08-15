@@ -1,0 +1,6 @@
+@font-face{
+    font-family: "Jua";
+    font-weight: 400;
+    src : url("./Jua/Jua-Regular.ttf")format("truetype");
+    font-display: swap;
+}

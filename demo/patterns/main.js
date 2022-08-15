@@ -33,6 +33,8 @@ let shape = new fabric.Rect({
     height: 100,
     left: 10,
     top: 300,
+    stroke: 'black',
+    strokeWidth:3,
 });
 
 canvas.add(text, shape);
