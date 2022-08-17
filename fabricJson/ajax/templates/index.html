@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+        #c{
+            border: 1px solid blue;
+        }
+        #save_btn{
+            border: 1px solid black;
+            padding: 1rem;
+            background-color: pink;
+        }
+        #load_btn{
+            border: 1px solid black;
+            padding: 1rem;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c" width="500" height="400"></canvas>
+    <div><button id="save_btn">Save</button></div>
+    <script>
+const canvas = new fabric.Canvas("c");
+
+function randomColor(){
+    return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+}
+
+const random_color = randomColor();
+let rect = new fabric.Rect({
+    top: 100,
+    left: 100,
+    width:100,
+    height:100,
+    fill : random_color,
+    stroke: 'black',
+    strokeWidth :4,
+});
+
+canvas.add(rect);
+canvas.requestRenderAll();
+
+const save_btn = document.getElementById('save_btn');
+save_btn.addEventListener('click', ()=>{
+    data = JSON.stringify(canvas);
+    $.ajax({
+        type:'POST',
+        url: "{% url 'ajax' %}",
+        data: data,
+        headers:{
+            'X-CSRFTOKEN' : '{{ csrf_token }}'
+        },
+        success:function(json){
+            console.log("data pass success", json);
+        },
+        error : function(xhr, errmsg, err){
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>
