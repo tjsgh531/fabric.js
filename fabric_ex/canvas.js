@@ -1,7 +1,6 @@
 class draw{
     constructor(){
         this.canvas = new fabric.Canvas('c');
-        
         this.current_obj = null;
         
         this.selectShape();
@@ -182,7 +181,6 @@ class draw{
         });
     }
 }
-
 
 window.onload = () =>{
     const draw_tool = new draw()
